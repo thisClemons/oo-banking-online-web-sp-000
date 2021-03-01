@@ -36,4 +36,11 @@ class Transfer
     @@past_transfers
   end
 
+  def reverse_transfer
+    if Transfer.past_transfers.inlude?(self)
+      self.sender.deposit(self.amount)
+      self.receiver.deposit(-self.amount)
+      Transfer.past_transfers.delete(self)
+  end
+
 end
