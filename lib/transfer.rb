@@ -2,7 +2,8 @@ require 'pry'
 
 class Transfer
 
-  attr_reader :sender, :receiver, :amount, :status
+  attr_reader :sender, :receiver, :amount
+  attr_accessor :status
 
   @@past_transfers = []
 
