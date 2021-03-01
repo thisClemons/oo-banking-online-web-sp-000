@@ -19,7 +19,7 @@ class Transfer
   end
 
   def execute_transaction
-    if sender.valid? && !Transfer.past_transfers.include?(self)
+    if sender.balance - amount > 0 && !Transfer.past_transfers.include?(self)
       # binding.pry
       sender.deposit(-amount)
       receiver.deposit(amount)
