@@ -1,3 +1,5 @@
+require 'pry'
+
 class Transfer
 
   attr_reader :sender, :receiver, :amount, :status
@@ -17,6 +19,7 @@ class Transfer
 
   def execute_transaction
     if sender.valid? && !Transfer.past_transfers.include?(self)
+      binding.pry
       sender.deposit(-amount)
       receiver.deposit(amount)
       status = "complete"
