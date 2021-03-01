@@ -27,7 +27,7 @@ class Transfer
       self.status = "complete"
       Transfer.past_transfers << self
     else
-      status = "rejected"
+      self.status = "rejected"
       "Transaction rejected. Please check your account balance."
     end
   end
