@@ -41,6 +41,7 @@ class Transfer
       self.sender.deposit(self.amount)
       self.receiver.deposit(-self.amount)
       Transfer.past_transfers.delete(self)
+    end
   end
 
 end
