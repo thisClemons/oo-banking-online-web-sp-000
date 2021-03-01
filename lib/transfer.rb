@@ -21,11 +21,14 @@ class Transfer
   def execute_transaction
     if sender.balance - amount > 0 && !Transfer.past_transfers.include?(self)
       # binding.pry
+      puts "went through"
+      
       sender.deposit(-amount)
       receiver.deposit(amount)
       self.status = "complete"
       Transfer.past_transfers << self
     else
+      puts "rejected"
       status = "rejected"
       "Transaction rejected. Please check your account balance."
     end
