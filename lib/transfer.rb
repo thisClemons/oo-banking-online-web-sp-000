@@ -28,6 +28,7 @@ class Transfer
       self.status = "complete"
       Transfer.past_transfers << self
     else
+      binding.pry
       puts "rejected"
       status = "rejected"
       "Transaction rejected. Please check your account balance."
