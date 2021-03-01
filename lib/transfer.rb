@@ -23,7 +23,7 @@ class Transfer
       binding.pry
       sender.deposit(-amount)
       receiver.deposit(amount)
-      status = "complete"
+      self.status = "complete"
       Transfer.past_transfers << self
     else
       status = "rejected"
