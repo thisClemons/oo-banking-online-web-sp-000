@@ -19,7 +19,7 @@ class Transfer
     if sender.valid? && !Transfer.past_transfers.include?(self)
       sender.deposit(-amount)
       receiver.deposit(amount)
-      self.status = "complete"
+      status = "complete"
       Transfer.past_transfers << self
     else
       status = "rejected"
