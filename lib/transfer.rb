@@ -40,7 +40,7 @@ class Transfer
     if Transfer.past_transfers.include?(self)
       self.sender.deposit(self.amount)
       self.receiver.deposit(-self.amount)
-      Transfer.past_transfers.delete(self)
+      self.status = "reversed"
     end
   end
 
